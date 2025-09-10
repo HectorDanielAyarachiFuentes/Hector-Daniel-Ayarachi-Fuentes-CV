@@ -51,7 +51,7 @@
     .hamburger-menu.active span:nth-child(2) { opacity: 0; }
     .hamburger-menu.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     
-    .download-cv { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(45deg, var(--sect1), var(--sect5)); color: white; border: none; padding: 15px 25px; border-radius: 50px; font-family: 'Varela Round', sans-serif; font-size: 1rem; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); z-index: 100; display: flex; align-items: center; transition: all 0.3s ease; }
+    .download-cv { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(45deg, var(--sect1), var(--sect5)); color: white; border: none; padding: 15px 25px; border-radius: 50px; font-family: 'Varela Round', sans-serif; font-size: 1rem; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); z-index: 100; display: flex; align-items: center; transition: all 0.3s ease; text-decoration: none; }
     .download-cv:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); }
     .download-cv i { margin-left: 8px; }
     
@@ -240,7 +240,7 @@
     <div class="profile-container"><div class="profile-3d" id="profile3d"><img src="img\yo.jpg" alt="Héctor Daniel Ayarachi Fuentes"></div></div>
     <h2 class="typewriter">Hola, soy Héctor Daniel Ayarachi Fuentes</h2>
     <p style="max-width: 800px;">Técnico en Recursos Humanos con visión y pasión por la conexión entre talento y tecnología. Combino mi experticia en RRHH con habilidades de programación (HTML, CSS, JavaScript, Python) para optimizar procesos y potenciar el desarrollo profesional. Actualmente cursando la Licenciatura en Gestión de Recursos Humanos, busco entornos que valoren la innovación y el trato humano.</p>
-    <button class="download-cv" id="downloadBtn"> Descargar CV en PDF <i class="fas fa-download"></i> </button>
+    <a href="CV_Hector_Ayarachi_Fuentes.pdf" download="CV_Hector_Ayarachi_Fuentes.pdf" class="download-cv"> Descargar CV en PDF <i class="fas fa-download"></i> </a>
     <a href="https://github.com/HectorDanielAyarachiFuentes" target="_blank" rel="noopener noreferrer" class="github-profile-btn">
       <i class="fab fa-github"></i> Mi Perfil de GitHub
     </a>
@@ -353,14 +353,6 @@
                 const x = (window.innerWidth / 2 - e.pageX) / 20;
                 const y = (window.innerHeight / 2 - e.pageY) / 20;
                 profile3d.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-            });
-        }
-
-        // --- Download CV Button ---
-        const downloadBtn = document.getElementById('downloadBtn');
-        if (downloadBtn) {
-            downloadBtn.addEventListener('click', () => {
-                alert('¡CV descargado! (Simulación)');
             });
         }
 

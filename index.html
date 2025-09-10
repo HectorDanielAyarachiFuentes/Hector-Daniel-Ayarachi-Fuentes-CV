@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RAMONCITO | HR Expert</title>
+  <title>Héctor Daniel Ayarachi Fuentes | CV</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
   <style>
@@ -14,6 +14,7 @@
       --sect3: #e63232;
       --sect4: #8BC34A;
       --sect5: #8946ff;
+      --sect6: #607D8B;
       --white: #fff;
     }
     
@@ -39,6 +40,7 @@
     .nav-links a:nth-child(3) { color: var(--sect3); }
     .nav-links a:nth-child(4) { color: var(--sect4); }
     .nav-links a:nth-child(5) { color: var(--sect5); }
+    .nav-links a:nth-child(6) { color: var(--sect6); }
 
     .hamburger-menu { display: none; background: none; border: none; cursor: pointer; padding: 10px; z-index: 1001; }
     .hamburger-menu span { display: block; width: 28px; height: 3px; background-color: var(--white); margin: 5px 0; transition: all 0.3s ease-in-out; }
@@ -49,6 +51,28 @@
     .download-cv { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(45deg, var(--sect1), var(--sect5)); color: white; border: none; padding: 15px 25px; border-radius: 50px; font-family: 'Varela Round', sans-serif; font-size: 1rem; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); z-index: 100; display: flex; align-items: center; transition: all 0.3s ease; }
     .download-cv:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); }
     .download-cv i { margin-left: 8px; }
+    
+    .github-profile-btn {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        background: linear-gradient(45deg, #333, #666);
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 50px;
+        font-family: 'Varela Round', sans-serif;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .github-profile-btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+    .github-profile-btn i { margin-right: 8px; }
     
     .profile-container { position: absolute; top: 100px; right: 50px; perspective: 1000px; z-index: 50; }
     .profile-3d { width: 180px; height: 180px; border-radius: 50%; overflow: hidden; border: 5px solid var(--white); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); transform-style: preserve-3d; transition: transform 0.5s ease, width 0.3s ease, height 0.3s ease; }
@@ -77,6 +101,17 @@
       .nav-links a { padding: 20px; font-size: 1.5rem; }
       .download-cv { position: relative; bottom: auto; right: auto; margin-top: 30px; z-index: 1; }
       .download-cv:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
+      .github-profile-btn {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: 15px;
+        z-index: 1;
+      }
+      .github-profile-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
 
       /* === MEJORA VISUAL DEL CARRUSEL PARA MÓVIL === */
       .content-container {
@@ -155,31 +190,47 @@
       }
        .carousel-button.prev { left: 5px; } /* Acercarlos un poco al borde */
        .carousel-button.next { right: 5px; }
+       .github-profile-btn {
+         padding: 12px 20px;
+         font-size: 0.9rem;
+       }
     }
+
+    footer { text-align: center; padding: 20px; background-color: var(--black); color: var(--white); font-size: 0.9rem; }
   </style>
 </head>
 <body>
   <div id="confetti-container"></div>
   <header>
     <nav>
-      <div class="logo"> <i class="fas fa-user-tie"></i> RAMONCITO </div>
+      <div class="logo"> <i class="fas fa-user-tie"></i> Héctor Daniel </div>
       <button class="hamburger-menu"> <span></span> <span></span> <span></span> </button>
-      <div class="nav-links"> <a href="#resumen">Inicio</a> <a href="#experiencia">Experiencia</a> <a href="#educacion">Educación</a> <a href="#habilidades">Habilidades</a> <a href="#contacto">Contacto</a> </div>
+      <div class="nav-links">
+        <a href="#resumen">Inicio</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#educacion">Educación</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
     </nav>
   </header>
   <section id="resumen" style="background-color: var(--sect1); color: var(--white);">
-    <div class="profile-container"><div class="profile-3d" id="profile3d"><img src="https://github.com/HectorDanielAyarachiFuentes/CIUDADES/blob/main/Imagenes/tierra.png?raw=true" alt="Ramoncito"></div></div>
-    <h2 class="typewriter">Hola, soy Ramoncito</h2>
-    <p>Profesional de Recursos Humanos con experiencia en la gestión de talento, reclutamiento y desarrollo de personal.</p>
-    <button class="download-cv" id="downloadBtn"> Descargar CV <i class="fas fa-download"></i> </button>
+    <div class="profile-container"><div class="profile-3d" id="profile3d"><img src="https://avatars.githubusercontent.com/u/109278551?v=4" alt="Héctor Daniel Ayarachi Fuentes"></div></div>
+    <h2 class="typewriter">Hola, soy Héctor Daniel Ayarachi Fuentes</h2>
+    <p style="max-width: 800px;">Técnico en Recursos Humanos con visión y pasión por la conexión entre talento y tecnología. Combino mi experticia en RRHH con habilidades de programación (HTML, CSS, JavaScript, Python) para optimizar procesos y potenciar el desarrollo profesional. Actualmente cursando la Licenciatura en Gestión de Recursos Humanos, busco entornos que valoren la innovación y el trato humano.</p>
+    <button class="download-cv" id="downloadBtn"> Descargar CV en PDF <i class="fas fa-download"></i> </button>
+    <a href="https://github.com/HectorDanielAyarachiFuentes" target="_blank" rel="noopener noreferrer" class="github-profile-btn">
+      <i class="fab fa-github"></i> Mi Perfil de GitHub
+    </a>
   </section>
   <section id="experiencia" style="background-color: var(--sect2); color: var(--white);">
     <h2>Experiencia Laboral</h2>
     <div class="content-container carousel">
       <div class="carousel-track">
-        <article class="carousel-slide card"><h3>Gerente de RRHH</h3> <p>Empresa Innovadora (2020-Presente)</p> <p>Lideré la transformación digital del área de recursos humanos.</p></article>
-        <article class="carousel-slide card"><h3>Reclutador Senior</h3> <p>Consultora Talentos (2017-2020)</p> <p>Implementé estrategias de reclutamiento que redujeron tiempos en un 40%.</p></article>
-        <article class="carousel-slide card"><h3>Analista de Capacitación</h3> <p>Corporación XYZ (2015-2017)</p> <p>Diseñé programas de formación que mejoraron la productividad en un 25%.</p></article>
+        <article class="carousel-slide card"><h3>Asesor Comercial</h3> <p>Varios | Actualidad</p> <p>Superación de metas de ventas y desarrollo de estrategias de marketing y fidelización.</p></article>
+        <article class="carousel-slide card"><h3>Asesor Comercial</h3> <p>MendoMotos | Dic. 2018 - Sep. 2019</p> <p>Incremento del 15% en ventas mediante asesoramiento integral y gestión de relaciones con clientes.</p></article>
+        <article class="carousel-slide card"><h3>Auxiliar Administrativo</h3> <p>Hospital Castro Rendón | Jun. 2017 - Abr. 2018</p> <p>Gestión de nombramientos de personal, control de inventario y organización de agendas médicas.</p></article>
       </div>
       <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
       <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
@@ -189,22 +240,119 @@
     <h2>Educación</h2>
     <div class="content-container carousel">
         <div class="carousel-track">
-          <article class="carousel-slide card"><h3>Maestría en RRHH</h3> <p>Universidad Nacional (2018-2020)</p> <p>Especialización en Gestión del Talento</p></article>
-          <article class="carousel-slide card"><h3>Licenciatura en Psicología</h3> <p>Universidad del País (2010-2015)</p> <p>Mención en Psicología Organizacional</p></article>
+          <article class="carousel-slide card"><h3>Licenciatura en Gestión de Recursos Humanos (Cursando)</h3> <p>Universidad Nacional del Comahue (UNCo) - CURZA</p> <p>Ampliando conocimientos en RRHH estratégicos y gestión de talento.</p></article>
+          <article class="carousel-slide card"><h3>Técnico Superior en Gestión de Recursos Humanos</h3> <p>I.P.E.T. | Neuquén</p> <p>Formación sólida en áreas clave de gestión de personal y relaciones laborales.</p></article>
+          <article class="carousel-slide card"><h3>Programador Web y Python Junior</h3> <p>Argentina Programa</p> <p>Capacitación en desarrollo frontend (HTML, CSS, JS) y backend con Python.</p></article>
+          <article class="carousel-slide card"><h3>Bachiller Humanístico</h3> <p>Escuela Santa Teresa de Jesús</p> <p>Educación secundaria con enfoque en ciencias sociales.</p></article>
         </div>
         <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
         <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
     </div>
   </section>
-  <section id="habilidades" style="background-color: var(--sect4); color: var(--white);"><h2 class="habilidades-title">Habilidades</h2><div class="skills-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 30px auto;"><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">Gestión del Talento</div><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">Reclutamiento 2.0</div><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">HR Analytics</div></div></section>
-  <section id="contacto" style="background-color: var(--sect5); color: var(--white);"><h2 class="contacto-title">Contacto</h2><div class="skills-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 30px auto;"><a href="#" class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px; text-decoration: none; color: inherit;"><i class="fas fa-envelope"></i> Email</a><a href="#" class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px; text-decoration: none; color: inherit;"><i class="fab fa-linkedin"></i> LinkedIn</a></div></section>
+  <section id="habilidades" style="background-color: var(--sect4); color: var(--white);"><h2 class="habilidades-title">Habilidades Clave</h2><div class="skills-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 30px auto;"><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">Gestión de Talento y RRHH (Experto)</div><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">Programación Web (HTML, CSS, JS) (Avanzado)</div><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">Python (Automatización) (Intermedio)</div><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">Ofimática Avanzada (Excel) (Experto)</div></div></section>
+  <section id="proyectos" style="background-color: var(--sect5); color: var(--white);">
+    <h2>Proyectos Destacados</h2>
+    <div class="content-container carousel">
+        <div class="carousel-track">
+          <a href="https://hectordanielayarachifuentes.github.io/Calculadora-Facundo-V7/" target="_blank" rel="noopener noreferrer" class="carousel-slide card" style="text-decoration: none; color: inherit; display: block;">
+            <img src="img/calculadorafacundo.jpeg" alt="Calculadora Facundo V7" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+            <h3>Calculadora Facundo V7</h3>
+            <p>Calculadora funcional desarrollada con tecnologías web, demostrando habilidades en lógica de JavaScript y diseño de interfaces.</p>
+          </a>
+          <a href="https://hectordanielayarachifuentes.github.io/La-Calculadora-de-Facundo-SUMA/" target="_blank" rel="noopener noreferrer" class="carousel-slide card" style="text-decoration: none; color: inherit; display: block;">
+            <img src="img/suma.jpeg" alt="Calculadora de Sumas" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+            <h3>Calculadora de Sumas</h3>
+            <p>Aplicación web simple para realizar sumas, ideal para practicar conceptos básicos de desarrollo frontend.</p>
+          </a>
+          <a href="https://hectordanielayarachifuentes.github.io/Como-se-lee-este-numero/" target="_blank" rel="noopener noreferrer" class="carousel-slide card" style="text-decoration: none; color: inherit; display: block;">
+            <img src="img/lectornumeros.jpeg" alt="Lector de Números" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+            <h3>Lector de Números</h3>
+            <p>Herramienta que convierte cifras numéricas a su representación en texto, un ejercicio de manipulación de datos y algoritmos.</p>
+          </a>
+        </div>
+        <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </section>
+  <section id="contacto" style="background-color: var(--sect6); color: var(--white);"><h2 class="contacto-title">Contacto</h2><div class="skills-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 30px auto; align-items: center;"><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;"><i class="fas fa-map-marker-alt"></i> Neuquén, Argentina</div><a href="tel:+542995056213" class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px; text-decoration: none; color: inherit;"><i class="fas fa-phone"></i> +54-299-5056-213</a><a href="mailto:mp4o@hotmail.com" class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px; text-decoration: none; color: inherit;"><i class="fas fa-envelope"></i> mp4o@hotmail.com</a><a href="https://github.com/HectorDanielAyarachiFuentes" target="_blank" rel="noopener noreferrer" class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px; text-decoration: none; color: inherit;"><i class="fab fa-github"></i> Mi GitHub</a></div></section>
+  <footer><p>© 2025 Héctor Daniel Ayarachi Fuentes. Desarrollado con pasión.</p></footer>
   <script>
-    (function(){
-        function createConfetti() { const c=['#ff9900','#2196F3','#e63232','#8BC34A','#8946ff','#FF4081'],d=document.getElementById('confetti-container');for(let i=0;i<100;i++){const e=document.createElement('div');e.className='confetti';e.style.left=Math.random()*100+'vw';e.style.backgroundColor=c[Math.floor(Math.random()*c.length)];e.style.width=Math.random()*10+5+'px';e.style.height=Math.random()*10+5+'px';e.style.animationDelay=Math.random()*5+'s';d.appendChild(e)}};window.onload=createConfetti;
-        const profile3d = document.getElementById('profile3d'); document.addEventListener('mousemove', (e) => { const x=(window.innerWidth/2 - e.pageX)/20, y=(window.innerHeight/2 - e.pageY)/20; profile3d.style.transform=`rotateY(${x}deg) rotateX(${y}deg)`; });
-        document.getElementById('downloadBtn').addEventListener('click', () => { alert('¡CV descargado! (Simulación)'); });
-        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));t&&window.scrollTo({top:t.offsetTop-70,behavior:'smooth'})})});
-        const hamburger=document.querySelector('.hamburger-menu'),navLinks=document.querySelector('.nav-links');hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('active')});document.querySelectorAll('.nav-links a').forEach(l=>{l.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('active')})});
+    (function() {
+        // --- Confetti Effect ---
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            if (!container) return;
+            const rootStyles = getComputedStyle(document.documentElement);
+            const colors = [
+                rootStyles.getPropertyValue('--sect1').trim(),
+                rootStyles.getPropertyValue('--sect2').trim(),
+                rootStyles.getPropertyValue('--sect3').trim(),
+                rootStyles.getPropertyValue('--sect4').trim(),
+                rootStyles.getPropertyValue('--sect5').trim(),
+                rootStyles.getPropertyValue('--sect6').trim()
+            ].filter(Boolean);
+
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors.length > 0 ? colors[Math.floor(Math.random() * colors.length)] : '#000';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(confetti);
+            }
+        }
+        window.addEventListener('load', createConfetti);
+
+        // --- 3D Profile Picture Effect ---
+        const profile3d = document.getElementById('profile3d');
+        if (profile3d) {
+            document.addEventListener('mousemove', (e) => {
+                const x = (window.innerWidth / 2 - e.pageX) / 20;
+                const y = (window.innerHeight / 2 - e.pageY) / 20;
+                profile3d.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+            });
+        }
+
+        // --- Download CV Button ---
+        const downloadBtn = document.getElementById('downloadBtn');
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', () => {
+                alert('¡CV descargado! (Simulación)');
+            });
+        }
+
+        // --- Smooth Scrolling ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70, // Adjust for fixed header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // --- Hamburger Menu ---
+        const hamburger = document.querySelector('.hamburger-menu');
+        const navLinks = document.querySelector('.nav-links');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
     })();
 
     // ===== LÓGICA DEL CARRUSEL MEJORADA =====

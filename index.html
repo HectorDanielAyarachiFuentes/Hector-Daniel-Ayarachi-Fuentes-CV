@@ -16,6 +16,7 @@
       --sect4: #8BC34A;
       --sect5: #8946ff;
       --sect6: #607D8B;
+      --sect7: #009688;
       --white: #fff;
     }
     
@@ -42,6 +43,7 @@
     .nav-links a:nth-child(4) { color: var(--sect4); }
     .nav-links a:nth-child(5) { color: var(--sect5); }
     .nav-links a:nth-child(6) { color: var(--sect6); }
+    .nav-links a:nth-child(7) { color: var(--sect7); }
 
     .hamburger-menu { display: none; background: none; border: none; cursor: pointer; padding: 10px; z-index: 1001; }
     .hamburger-menu span { display: block; width: 28px; height: 3px; background-color: var(--white); margin: 5px 0; transition: all 0.3s ease-in-out; }
@@ -86,13 +88,31 @@
     
     .content-container { width: 100%; max-width: 1000px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; position: relative; }
     .card { background: rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 30px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); transition: all 0.4s ease; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.3); }
+    .card { background: rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); transition: all 0.4s ease; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.3); }
     
     .typewriter { display: inline-block; overflow: hidden; border-right: 3px solid; white-space: nowrap; margin: 0 auto; letter-spacing: 2px; animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite; }
     @keyframes typing { from { width: 0 } to { width: 100% } }
     @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: currentColor; } }
 
-    .carousel-track { display: contents; }
+    /* --- Carousel Desktop: Horizontal Scroll --- */
+    .content-container.carousel {
+        display: block; /* Override grid to allow scrolling */
+        overflow-x: auto;
+        padding-bottom: 20px; /* Space for scrollbar */
+        scrollbar-width: thin;
+        scrollbar-color: var(--white) rgba(255,255,255,0.25);
+    }
+    .content-container.carousel::-webkit-scrollbar { height: 8px; }
+    .content-container.carousel::-webkit-scrollbar-track { background: rgba(255,255,255,0.15); border-radius: 4px; }
+    .content-container.carousel::-webkit-scrollbar-thumb { background: var(--white); border-radius: 4px; }
+
+    .carousel-track { display: flex; gap: 30px; }
     .carousel-button { display: none; }
+    .carousel-track > .carousel-slide {
+        width: 310px; /* Ancho fijo para las tarjetas del carrusel en desktop */
+        flex-shrink: 0;
+    }
+    .carousel-button { display: none; } 
     
     @media (max-width: 992px) {
       .profile-container { position: relative; top: 0; right: 0; margin: 30px auto; }
@@ -125,11 +145,13 @@
       .carousel-track {
           display: flex;
           transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+          gap: 0; /* Reset gap for mobile carousel logic */
       }
       .carousel-slide {
           flex: 0 0 100%;
           margin: 0;
           padding: 40px 25px; 
+          padding: 30px 25px; 
           opacity: 0.5;
           transform: scale(0.9);
           transition: opacity 0.5s ease, transform 0.5s ease, padding 0.3s ease;
@@ -208,6 +230,7 @@
       <button class="hamburger-menu"> <span></span> <span></span> <span></span> </button>
       <div class="nav-links">
         <a href="#resumen">Inicio</a>
+        <a href="#datos-personales">Datos Personales</a>
         <a href="#experiencia">Experiencia</a>
         <a href="#educacion">Educación</a>
         <a href="#habilidades">Habilidades</a>
@@ -225,7 +248,18 @@
       <i class="fab fa-github"></i> Mi Perfil de GitHub
     </a>
   </section>
-  <section id="experiencia" style="background-color: var(--sect2); color: var(--white);">
+  <section id="datos-personales" style="background-color: var(--sect2); color: var(--white);">
+    <h2>Datos Personales</h2>
+    <div class="skills-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 30px auto; align-items: center;">
+      <div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;"><i class="fas fa-user"></i> Hector D. Ayarachi Fuentes</div>
+      <div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;"><i class="fas fa-calendar-alt"></i> 30/11/1990</div>
+      <div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;"><i class="fas fa-map-marker-alt"></i> Neuquén, Argentina</div>
+      <div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;"><i class="fas fa-heart"></i> Soltero, sin hijos</div>
+      <a href="tel:+542995056213" class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px; text-decoration: none; color: inherit;"><i class="fas fa-phone"></i> +54 299 5056 213</a>
+      <a href="mailto:mp4o@hotmail.com" class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px; text-decoration: none; color: inherit;"><i class="fas fa-envelope"></i> mp4o@hotmail.com</a>
+    </div>
+  </section>
+  <section id="experiencia" style="background-color: var(--sect3); color: var(--white);">
     <h2>Experiencia Laboral</h2>
     <div class="content-container carousel">
       <div class="carousel-track">
@@ -237,7 +271,7 @@
       <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
     </div>
   </section>
-  <section id="educacion" style="background-color: var(--sect3); color: var(--white);">
+  <section id="educacion" style="background-color: var(--sect4); color: var(--white);">
     <h2>Educación</h2>
     <div class="content-container carousel">
         <div class="carousel-track">
@@ -253,8 +287,8 @@
         <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
     </div>
   </section>
-  <section id="habilidades" style="background-color: var(--sect4); color: var(--white);"><h2 class="habilidades-title">Habilidades Clave</h2><div class="skills-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 30px auto;"><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">Gestión de Talento y RRHH (Experto)</div><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">Programación Web (HTML, CSS, JS) (Avanzado)</div><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">Python (Automatización) (Intermedio)</div><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">Ofimática Avanzada (Excel) (Avanzado)</div></div></section>
-  <section id="proyectos" style="background-color: var(--sect5); color: var(--white);">
+  <section id="habilidades" style="background-color: var(--sect5); color: var(--white);"><h2 class="habilidades-title">Habilidades Clave</h2><div class="skills-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 30px auto;"><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">Gestión de Talento y RRHH (Experto)</div><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">Programación Web (HTML, CSS, JS) (Avanzado)</div><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">Python (Automatización) (Intermedio)</div><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;">Ofimática Avanzada (Excel) (Experto)</div></div></section>
+  <section id="proyectos" style="background-color: var(--sect6); color: var(--white);">
     <h2>Proyectos Destacados</h2>
     <div class="content-container carousel">
         <div class="carousel-track">
@@ -278,7 +312,13 @@
         <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
     </div>
   </section>
-  <section id="contacto" style="background-color: var(--sect6); color: var(--white);"><h2 class="contacto-title">Contacto</h2><div class="skills-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 30px auto; align-items: center;"><div class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px;"><i class="fas fa-map-marker-alt"></i> Neuquén, Argentina</div><a href="tel:+542995056213" class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px; text-decoration: none; color: inherit;"><i class="fas fa-phone"></i> +54-299-5056-213</a><a href="mailto:mp4o@hotmail.com" class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px; text-decoration: none; color: inherit;"><i class="fas fa-envelope"></i> mp4o@hotmail.com</a><a href="https://github.com/HectorDanielAyarachiFuentes" target="_blank" rel="noopener noreferrer" class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px; text-decoration: none; color: inherit;"><i class="fab fa-github"></i> Mi GitHub</a></div></section>
+  <section id="contacto" style="background-color: var(--sect7); color: var(--white);">
+    <h2 class="contacto-title">Contacto</h2>
+    <div class="skills-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 30px auto; align-items: center;">
+      <p style="width: 100%; margin-bottom: 15px;">Puedes revisar mis proyectos en GitHub o contactarme a través de los medios listados en la sección de Datos Personales.</p>
+      <a href="https://github.com/HectorDanielAyarachiFuentes" target="_blank" rel="noopener noreferrer" class="skill" style="background: rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 30px; text-decoration: none; color: inherit;"><i class="fab fa-github"></i> Mi GitHub</a>
+    </div>
+  </section>
   <footer><p>© 2025 Héctor Daniel Ayarachi Fuentes. Desarrollado con pasión.</p></footer>
   <script>
     (function() {

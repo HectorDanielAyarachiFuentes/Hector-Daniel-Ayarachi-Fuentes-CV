@@ -47,7 +47,7 @@
     
     header { width: 100%; position: fixed; top: 0; z-index: 1000; }
     nav { background: linear-gradient(0deg, #fff0 0px, var(--black) 1px 100%); height: 70px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
-    .logo { font-size: 1.8rem; font-weight: bold; color: var(--white); display: flex; align-items: center; transition: font-size 0.3s ease; }
+    .logo { font-size: 1.8rem; font-weight: bold; color: var(--white); display: flex; align-items: center; transition: font-size 0.3s ease; white-space: nowrap; }
     .logo i { margin-right: 10px; color: var(--sect1); animation: pulse 2s infinite; }
     @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
     
@@ -101,13 +101,13 @@
     
     section { min-height: 100vh; padding: 100px 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; border-bottom: 4px solid var(--black); overflow: hidden; }
     section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.05); z-index: -1; }
-    section h2 { font-size: 3rem; margin-bottom: 30px; position: relative; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); transition: font-size 0.3s ease; }
+    section h2 { font-size: clamp(1.2rem, 5vw, 3rem); margin-bottom: 30px; position: relative; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); transition: font-size 0.3s ease; }
     section h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: currentColor; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
     
     .content-container { width: 100%; max-width: 1000px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; position: relative; }
     .card { background: rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); transition: all 0.4s ease; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.3); }
     
-    .typewriter { display: inline-block; overflow: hidden; border-right: 3px solid; white-space: nowrap; margin: 0 auto; letter-spacing: 2px; animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite; }
+    .typewriter { display: inline-block; overflow: hidden; border-right: 3px solid; white-space: nowrap; margin: 0 auto; letter-spacing: clamp(1px, 0.5vw, 2px); animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite; }
     @keyframes typing { from { width: 0 } to { width: 100% } }
     @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: currentColor; } }
 
@@ -131,6 +131,9 @@
     .carousel-button { display: none; } 
     
     @media (max-width: 992px) {
+      .logo {
+        font-size: 1.2rem;
+      }
       .profile-container { position: relative; top: 0; right: 0; margin: 30px auto; }
       .hamburger-menu { display: block; }
       .nav-links { position: fixed; top: 70px; left: 100%; width: 100%; height: calc(100vh - 70px); background-color: var(--black); flex-direction: column; justify-content: center; align-items: center; transition: left 0.3s ease-in-out; }
@@ -198,17 +201,16 @@
     }
     
     @media (max-width: 576px) {
-      section h2 { font-size: 2.2rem; }
+      .logo {
+        font-size: 1rem;
+      }
       .profile-3d { width: 150px; height: 150px; }
     }
 
     /* ===== NUEVA MEDIA QUERY PARA PANTALLAS MUY PEQUEÑAS ===== */
-    @media (max-width: 320px) {
-      section h2 {
-        font-size: 1.9rem; /* Título un poco más pequeño */
-      }
+    @media (max-width: 400px) {
       .logo {
-        font-size: 1.5rem; /* Reducir el tamaño del logo */
+        font-size: 0.9rem; /* Reducir el tamaño del logo */
       }
       .profile-3d {
         width: 120px; /* Reducir el tamaño de la foto */

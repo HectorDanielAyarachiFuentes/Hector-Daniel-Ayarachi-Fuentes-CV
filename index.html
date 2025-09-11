@@ -39,7 +39,10 @@
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { 
+      scroll-behavior: smooth; 
+      scroll-padding-top: 70px; /* Espacio para el header fijo al navegar con anclas */
+    }
     body { font-family: 'Varela Round', sans-serif; background-color: var(--white); color: var(--black); line-height: 1.6; overflow-x: hidden; }
     
     .confetti { position: fixed; width: 10px; height: 10px; background-color: var(--sect1); opacity: 0; z-index: 9999; animation: confetti 5s ease-out forwards; }
@@ -62,7 +65,6 @@
     .nav-links a:nth-child(5) { color: var(--sect5); }
     .nav-links a:nth-child(6) { color: var(--sect6); }
     .nav-links a:nth-child(7) { color: var(--sect7); }
-    .nav-links a:nth-child(7) { color: var(--sect7); }
 
     .hamburger-menu { display: none; background: none; border: none; cursor: pointer; padding: 10px; z-index: 1001; }
     .hamburger-menu span { display: block; width: 28px; height: 3px; background-color: var(--white); margin: 5px 0; transition: all 0.3s ease-in-out; }
@@ -80,7 +82,12 @@
     section h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: currentColor; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
     
     .content-container { width: 100%; max-width: 1000px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; position: relative; }
-    .card { background: rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); transition: all 0.4s ease; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.3); }
+    .card { 
+      background: rgba(255, 255, 255, 0.2); 
+      border-radius: 15px; padding: 25px; 
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+      transition: all 0.4s ease; 
+      -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.3); }
     
     .typewriter { display: inline-block; overflow: hidden; border-right: 3px solid; white-space: nowrap; margin: 0 auto; letter-spacing: clamp(1px, 0.5vw, 2px); animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite; }
     @keyframes typing { from { width: 0 } to { width: 100% } }
@@ -145,8 +152,8 @@
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          background-color: rgba(0, 0, 0, 0.2);
-          backdrop-filter: blur(3px);
+          background-color: rgba(0, 0, 0, 0.3);
+          -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
           border: 1px solid rgba(255, 255, 255, 0.2);
           color: white;
           width: 45px;
@@ -374,7 +381,6 @@
     (function(){
         function createConfetti() { const c=['#ff9900','#2196F3','#e63232','#8BC34A','#8946ff','#FF4081'],d=document.getElementById('confetti-container');for(let i=0;i<100;i++){const e=document.createElement('div');e.className='confetti';e.style.left=Math.random()*100+'vw';e.style.backgroundColor=c[Math.floor(Math.random()*c.length)];e.style.width=Math.random()*10+5+'px';e.style.height=Math.random()*10+5+'px';e.style.animationDelay=Math.random()*5+'s';d.appendChild(e)}};window.onload=createConfetti;
         const profile3d = document.getElementById('profile3d'); document.addEventListener('mousemove', (e) => { const x=(window.innerWidth/2 - e.pageX)/20, y=(window.innerHeight/2 - e.pageY)/20; profile3d.style.transform=`rotateY(${x}deg) rotateX(${y}deg)`; });
-        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));t&&window.scrollTo({top:t.offsetTop-70,behavior:'smooth'})})});
         const hamburger=document.querySelector('.hamburger-menu'),navLinks=document.querySelector('.nav-links');hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('active')});document.querySelectorAll('.nav-links a').forEach(l=>{l.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('active')})});
     })();
 

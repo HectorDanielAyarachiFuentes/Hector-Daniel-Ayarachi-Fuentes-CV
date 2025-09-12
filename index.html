@@ -193,6 +193,7 @@
     /* ===== NUEVO FOOTER ESTILO SECCIÓN ===== */
     footer {
       padding: 80px 20px 30px;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -239,10 +240,11 @@
       color: rgba(255, 255, 255, 0.8);
       text-decoration: none;
       transition: color 0.3s ease, transform 0.2s ease-out;
+      transform: translate(var(--magnetic-x, 0px), var(--magnetic-y, 0px));
     }
     .footer-links a:hover {
       color: var(--white);
-      transform: translateY(-3px);
+      transform: translate(var(--magnetic-x, 0px), var(--magnetic-y, 0px)) translateY(-3px);
     }
     .footer-action-btn {
       font-size: 1rem;
@@ -254,11 +256,12 @@
       border-radius: 50px;
       font-weight: bold;
       color: var(--sect1);
+      transition: all 0.3s ease;
     }
     .footer-action-btn:hover {
       background-color: var(--sect1);
       color: var(--white);
-      transform: translateY(-3px) scale(1.05);
+      transform: translate(var(--magnetic-x, 0px), var(--magnetic-y, 0px)) translateY(-3px) scale(1.05);
       box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3);
     }
     .footer-icon-link {
@@ -462,14 +465,21 @@
           if (distance < magneticArea) {
             const moveX = deltaX * strength;
             const moveY = deltaY * strength;
-            el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            el.style.setProperty('--magnetic-x', `${moveX}px`);
+            el.style.setProperty('--magnetic-y', `${moveY}px`);
           } else {
-            el.style.transform = '';
+            el.style.setProperty('--magnetic-x', '0px');
+            el.style.setProperty('--magnetic-y', '0px');
           }
         });
       });
 
-      footer.addEventListener('mouseleave', () => magneticElements.forEach(el => el.style.transform = ''));
+      footer.addEventListener('mouseleave', () => {
+        magneticElements.forEach(el => {
+            el.style.setProperty('--magnetic-x', '0px');
+            el.style.setProperty('--magnetic-y', '0px');
+        });
+      });
     })();
   </script>
 </body>
